@@ -14,6 +14,20 @@ export default class Main extends Component {
     repositories: [],
   };
 
+  componentDidMount() {
+    const repositories = JSON.parse(localStorage.getItem('@Gitcompare:repositories'));
+
+    if (repositories) {
+      this.setState({ repositories });
+    }
+  }
+
+  componentDidUpdate() {
+    const { repositories } = this.state;
+
+    localStorage.setItem('@Gitcompare:repositories', JSON.stringify(repositories));
+  }
+
   handleAddRepository = async (e) => {
     e.preventDefault();
 
