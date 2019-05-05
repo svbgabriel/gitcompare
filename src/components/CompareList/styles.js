@@ -58,3 +58,34 @@ export const Repository = styled.div`
     }
   }
 `;
+
+export const Actions = styled.div`
+  height: 48px;
+  display: flex;
+
+  .delete {
+    width: 100%;
+    background: #f56363;
+    color: #fff;
+    border: 0;
+    font-size: 20px;
+    font-weight: bold;
+
+    &:hover {
+      background: #f74b4b;
+    }
+  }
+
+  .update {
+    width: 100%;
+    background: #63aff5;
+    color: #fff;
+    border: 0;
+    font-size: 20px;
+    font-weight: bold;
+
+    &:hover {
+      background: #1282e8;
+    }
+  }
+`;
