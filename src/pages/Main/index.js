@@ -74,13 +74,17 @@ export default class Main extends Component {
 
       data.lastCommit = moment(data.pushed_at).fromNow();
 
-      this.setState({
-        repositoryInput: '',
-        repositories: repositories.map(repo => (repo.id === data.id ? data : repo)),
-        repositoryError: false,
-      });
-
-      localStorage.setItem('@Gitcompare:repositories', JSON.stringify(repositories));
+      this.setState(
+        {
+          repositoryInput: '',
+          repositories: repositories.map(repo => (repo.id === data.id ? data : repo)),
+          repositoryError: false,
+        },
+        () => {
+          const { repositories } = this.state;
+          localStorage.setItem('@Gitcompare:repositories', JSON.stringify(repositories));
+        },
+      );
     } catch (err) {
       this.setState({ repositoryError: true });
     }
